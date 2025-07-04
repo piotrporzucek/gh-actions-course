@@ -7,7 +7,6 @@ on:
 env:
   WORKLOW_VAR: "I am a WFL-Var"
   OVERWRITTEN: "I have been overwritten at the job level"
-
 jobs:
   echo:
     run-on: ubuntu-latest
