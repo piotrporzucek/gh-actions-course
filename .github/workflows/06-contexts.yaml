@@ -13,6 +13,10 @@ on:
 jobs:
   echo-data:
     runs-on: ubuntu-latest
+    env:
+      MY_JOB_VAR: 'job'
+      MY_OVERWRITTEN_JOB: 'job'
+
     steps:
       - name: Display Information
         run: |
@@ -25,3 +29,9 @@ jobs:
           echo "Run number: ${{github.run_number}}"
       - name: Retrieve Variable
         run: echo "Variable value ${{vars.MY_VAR}}"
+      - name: Print Env Variables
+        env:
+          MY_OVERWRITTEN_JOB: 'step'
+        run: |
+          echo "WFL: ${{env.MY_JOB_VAR}}"
+          echo "WFL-OVER: ${{env.MY_OVERWRITTEN_JOB}}"
